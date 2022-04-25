@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pinata_python.pinning &#8212; pinata-python 0.0.1 documentation</title>
+    <title>pinata_python.pinning &#8212; pinata-python 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
@@ -41,7 +41,7 @@
 <span class="kn">from</span> <span class="nn">.utils.custom_typing</span> <span class="kn">import</span> <span class="n">Options</span><span class="p">,</span> <span class="n">PinataResponse</span>
 
 
-<div class="viewcode-block" id="Pinning"><a class="viewcode-back" href="../../index.html#pinata_python.pinning.Pinning">[docs]</a><span class="nd">@dataclass</span>
+<div class="viewcode-block" id="Pinning"><a class="viewcode-back" href="../../pinata_python.pinning.html#pinata_python.pinning.Pinning">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">Pinning</span><span class="p">(</span><span class="n">Pinata</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Extended Pinning class. Inherits from Pinata. </span>
 
@@ -49,7 +49,7 @@
 <span class="sd">        Pinata (class): pinata_python.base.Pinata</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Pinning.pin_file_to_ipfs"><a class="viewcode-back" href="../../index.html#pinata_python.pinning.Pinning.pin_file_to_ipfs">[docs]</a>    <span class="k">def</span> <span class="nf">pin_file_to_ipfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
+<div class="viewcode-block" id="Pinning.pin_file_to_ipfs"><a class="viewcode-back" href="../../pinata_python.pinning.html#pinata_python.pinning.Pinning.pin_file_to_ipfs">[docs]</a>    <span class="k">def</span> <span class="nf">pin_file_to_ipfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;See (https://docs.pinata.cloud/api-pinning/pin-file).</span>
 
 <span class="sd">        Args:</span>
@@ -58,7 +58,27 @@
 <span class="sd">            extension (str): The desired file extension, i.e. &#39;.png&#39;. Defaults to &#39;&#39;, which means all files.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            PinataResponse: See custom_typing.py file.</span>
+<span class="sd">            PinataResponse: See utils.custom_typing.py file.</span>
+<span class="sd">        </span>
+<span class="sd">        Example::</span>
+<span class="sd">            </span>
+<span class="sd">            from pinata_python.pinning import Pinning</span>
+
+<span class="sd">            pinata = Pinning(AUTH=&quot;jwt&quot;, PINATA_JWT_TOKEN=&#39;&lt;YOUR-JWT&gt;&#39;)</span>
+
+<span class="sd">            filepath = &#39;&lt;YOUR-FILEPATH&gt;&#39;</span>
+
+<span class="sd">            response = pinata.pin_file_to_ipfs(filepath)</span>
+<span class="sd">            print(response)</span>
+<span class="sd">        </span>
+<span class="sd">        Results::</span>
+<span class="sd">           </span>
+<span class="sd">           {</span>
+<span class="sd">                &#39;IpfsHash&#39;: str,</span>
+<span class="sd">                &#39;PinSize&#39;: int,</span>
+<span class="sd">                &#39;Timestamp&#39;: str, # ISO 8601 format</span>
+<span class="sd">           }</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">PINATA_BASE_URL</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">PIN_FILE_TO_IPFS</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">()</span>
@@ -81,7 +101,7 @@
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">}</span></div>
     
 
-<div class="viewcode-block" id="Pinning.pin_json_to_ipfs"><a class="viewcode-back" href="../../index.html#pinata_python.pinning.Pinning.pin_json_to_ipfs">[docs]</a>    <span class="k">def</span> <span class="nf">pin_json_to_ipfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json_struct</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
+<div class="viewcode-block" id="Pinning.pin_json_to_ipfs"><a class="viewcode-back" href="../../pinata_python.pinning.html#pinata_python.pinning.Pinning.pin_json_to_ipfs">[docs]</a>    <span class="k">def</span> <span class="nf">pin_json_to_ipfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json_struct</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;See (https://docs.pinata.cloud/api-pinning/pin-json).</span>
 
 <span class="sd">        Args:</span>
@@ -90,7 +110,37 @@
 <span class="sd">            options (Options, optional): The dictionary with keywords &#39;pinataOptions&#39; and/or &#39;pinataMetadata&#39;. Defaults to None.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            PinataResponse: See custom_typing.py file.</span>
+<span class="sd">            PinataResponse: See utils.custom_typing.py file.</span>
+<span class="sd">        </span>
+<span class="sd">        Example::</span>
+<span class="sd">            </span>
+<span class="sd">            from pinata_python.pinning import Pinning</span>
+
+<span class="sd">            pinata = Pinning(AUTH=&quot;jwt&quot;, PINATA_JWT_TOKEN=&#39;&lt;YOUR-JWT&gt;&#39;)</span>
+
+<span class="sd">            player = {&#39;name&#39;: &#39;goku&#39;, &#39;surname&#39;: &#39;son goku&#39;}</span>
+<span class="sd">            options = {</span>
+<span class="sd">                &#39;pinataMetadata&#39;: {</span>
+<span class="sd">                    &#39;name&#39;: &#39;player1&#39;,</span>
+<span class="sd">                    &#39;keyvalues&#39;: {</span>
+<span class="sd">                        &#39;power&#39;: 10,</span>
+<span class="sd">                        &#39;stamina&#39;: &#39;high&#39;,</span>
+<span class="sd">                        &#39;skill&#39;: &#39;jumping&#39;</span>
+<span class="sd">                    }  </span>
+<span class="sd">                }</span>
+<span class="sd">            }</span>
+<span class="sd">        </span>
+<span class="sd">            response = pinata.pin_json_to_ipfs(player, options)</span>
+<span class="sd">            print(response)</span>
+<span class="sd">        </span>
+<span class="sd">        Results::</span>
+<span class="sd">            </span>
+<span class="sd">            {</span>
+<span class="sd">                &#39;IpfsHash&#39;: str,</span>
+<span class="sd">                &#39;PinSize&#39;: int,</span>
+<span class="sd">                &#39;Timestamp&#39;: str, # ISO 8601 format</span>
+<span class="sd">            }</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">PINATA_BASE_URL</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">PIN_JSON_TO_IPFS</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">()</span>
@@ -114,7 +164,7 @@
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">}</span></div>
     
 
-<div class="viewcode-block" id="Pinning.pin_by_hash"><a class="viewcode-back" href="../../index.html#pinata_python.pinning.Pinning.pin_by_hash">[docs]</a>    <span class="k">def</span> <span class="nf">pin_by_hash</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hash_to_pin</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
+<div class="viewcode-block" id="Pinning.pin_by_hash"><a class="viewcode-back" href="../../pinata_python.pinning.html#pinata_python.pinning.Pinning.pin_by_hash">[docs]</a>    <span class="k">def</span> <span class="nf">pin_by_hash</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hash_to_pin</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;See (https://docs.pinata.cloud/api-pinning/pin-by-hash).</span>
 
 <span class="sd">        Args:</span>
@@ -123,7 +173,38 @@
 <span class="sd">            options (Options, optional): The dictionary with keywords &#39;pinataOptions&#39; and/or &#39;pinataMetadata&#39;. Defaults to None.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            PinataResponse: See custom_typing.py file.</span>
+<span class="sd">            PinataResponse: See utils.custom_typing.py file.</span>
+<span class="sd">        </span>
+<span class="sd">        Example::</span>
+<span class="sd">            </span>
+<span class="sd">            from pinata_python.pinning import Pinning</span>
+
+<span class="sd">            pinata = Pinning(AUTH=&quot;jwt&quot;, PINATA_JWT_TOKEN=&#39;&lt;YOUR-JWT&gt;&#39;)</span>
+
+<span class="sd">            options = {</span>
+<span class="sd">                       &#39;pinataMetadata&#39;: {</span>
+<span class="sd">                           &#39;name&#39;: &#39;alice&#39;,</span>
+<span class="sd">                           &#39;keyvalues&#39;: {</span>
+<span class="sd">                               &#39;power&#39;: 100,</span>
+<span class="sd">                               &#39;stamina&#39;: &#39;high&#39;,</span>
+<span class="sd">                               &#39;job&#39;: &#39;queen&#39;</span>
+<span class="sd">                           }  </span>
+<span class="sd">                       }</span>
+<span class="sd">                   }</span>
+<span class="sd">            hashstring = &#39;&lt;YOUR-HASHSTRING&gt;&#39;</span>
+<span class="sd">               </span>
+<span class="sd">            response = pinata.pin_by_hash(hashstring, options)</span>
+<span class="sd">            print(response)</span>
+<span class="sd">        </span>
+<span class="sd">        Results::</span>
+<span class="sd">            </span>
+<span class="sd">            {</span>
+<span class="sd">                &#39;id&#39;: str,</span>
+<span class="sd">                &#39;IpfsHash&#39;: str,</span>
+<span class="sd">                &#39;PinSize&#39;: int,</span>
+<span class="sd">                &#39;Timestamp&#39;: str, # ISO 8601 format</span>
+<span class="sd">            }</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">PINATA_BASE_URL</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">PIN_BY_HASH</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">()</span>
@@ -147,14 +228,30 @@
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">}</span></div>
 
 
-<div class="viewcode-block" id="Pinning.unpin"><a class="viewcode-back" href="../../index.html#pinata_python.pinning.Pinning.unpin">[docs]</a>    <span class="k">def</span> <span class="nf">unpin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hash_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
+<div class="viewcode-block" id="Pinning.unpin"><a class="viewcode-back" href="../../pinata_python.pinning.html#pinata_python.pinning.Pinning.unpin">[docs]</a>    <span class="k">def</span> <span class="nf">unpin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hash_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;See (https://docs.pinata.cloud/api-pinning/unpin).</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            hash_string (str): The hash string that you want to unpin.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            PinataResponse: See custom_typing.py file.</span>
+<span class="sd">            PinataResponse: See utils.custom_typing.py file.</span>
+<span class="sd">        </span>
+<span class="sd">        Example::</span>
+<span class="sd">            </span>
+<span class="sd">            from pinata_python.pinning import Pinning</span>
+
+<span class="sd">            pinata = Pinning(AUTH=&quot;jwt&quot;, PINATA_JWT_TOKEN=&#39;&lt;YOUR-JWT&gt;&#39;)</span>
+
+<span class="sd">            cid = &#39;&lt;YOUR-CID&gt;&#39;</span>
+
+<span class="sd">            response = pinata.unpin(cid)</span>
+<span class="sd">            print(response)</span>
+<span class="sd">        </span>
+<span class="sd">        Results::</span>
+<span class="sd">            </span>
+<span class="sd">            200</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">PINATA_BASE_URL</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">UNPIN</span><span class="si">}{</span><span class="n">hash_string</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">()</span>
@@ -168,7 +265,7 @@
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">}</span></div>
     
 
-<div class="viewcode-block" id="Pinning.hash_metadata"><a class="viewcode-back" href="../../index.html#pinata_python.pinning.Pinning.hash_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">hash_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ipfs_pin_hash</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
+<div class="viewcode-block" id="Pinning.hash_metadata"><a class="viewcode-back" href="../../pinata_python.pinning.html#pinata_python.pinning.Pinning.hash_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">hash_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ipfs_pin_hash</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;See (https://docs.pinata.cloud/api-pinning/hash-metadata).</span>
 
 <span class="sd">        Args:</span>
@@ -177,7 +274,31 @@
 <span class="sd">            options (Options, optional): The dictionary with keywords &#39;name&#39; and/or &#39;keyvalues&#39;. Defaults to None.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            PinataResponse: See custom_typing.py file.</span>
+<span class="sd">            PinataResponse: See utils.custom_typing.py file.</span>
+<span class="sd">        </span>
+<span class="sd">        Example::</span>
+<span class="sd">            </span>
+<span class="sd">            from pinata_python.pinning import Pinning</span>
+
+<span class="sd">            pinata = Pinning(AUTH=&quot;jwt&quot;, PINATA_JWT_TOKEN=&#39;&lt;YOUR-JWT&gt;&#39;)</span>
+
+<span class="sd">            cid = &#39;&lt;YOUR-CID&gt;&#39;</span>
+<span class="sd">            options = {</span>
+<span class="sd">                         &#39;name&#39;: &#39;alice&#39;,</span>
+<span class="sd">                         &#39;keyvalues&#39;: {</span>
+<span class="sd">                                &#39;power&#39;: 100,</span>
+<span class="sd">                                &#39;stamina&#39;: &#39;high&#39;,</span>
+<span class="sd">                                &#39;job&#39;: &#39;queen&#39;</span>
+<span class="sd">                        } </span>
+<span class="sd">                    }</span>
+
+<span class="sd">            response = pinata.hash_metadata(cid, options)</span>
+<span class="sd">            print(response)</span>
+<span class="sd">        </span>
+<span class="sd">        Results::</span>
+<span class="sd">            </span>
+<span class="sd">            200</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">PINATA_BASE_URL</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">HASH_METADATA</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">()</span>
@@ -201,7 +322,7 @@
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">}</span></div>
     
 
-<div class="viewcode-block" id="Pinning.hash_pin_policy"><a class="viewcode-back" href="../../index.html#pinata_python.pinning.Pinning.hash_pin_policy">[docs]</a>    <span class="k">def</span> <span class="nf">hash_pin_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ipfs_pin_hash</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_pin_policy</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
+<div class="viewcode-block" id="Pinning.hash_pin_policy"><a class="viewcode-back" href="../../pinata_python.pinning.html#pinata_python.pinning.Pinning.hash_pin_policy">[docs]</a>    <span class="k">def</span> <span class="nf">hash_pin_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ipfs_pin_hash</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_pin_policy</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;See (https://docs.pinata.cloud/api-pinning/hash-pin-policy).</span>
 
 <span class="sd">        Args:</span>
@@ -210,7 +331,31 @@
 <span class="sd">            new_pin_policy (Dict[str, Any]): The new pin policy that you want to apply.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            PinataResponse: See custom_typing.py file.</span>
+<span class="sd">            PinataResponse: See utils.custom_typing.py file.</span>
+<span class="sd">        </span>
+<span class="sd">        Example::</span>
+<span class="sd">            </span>
+<span class="sd">            from pinata_python.pinning import Pinning</span>
+
+<span class="sd">            pinata = Pinning(AUTH=&quot;jwt&quot;, PINATA_JWT_TOKEN=&#39;&lt;YOUR-JWT&gt;&#39;)</span>
+
+<span class="sd">            cid = &#39;&lt;YOUR-CID&gt;&#39;</span>
+<span class="sd">            new_pin_policy = {</span>
+<span class="sd">                                &#39;regions&#39;: [</span>
+<span class="sd">                                    {</span>
+<span class="sd">                                        &#39;id&#39;: &#39;FRA1&#39;,</span>
+<span class="sd">                                        &#39;desiredReplicationCount&#39;: 1</span>
+<span class="sd">                                    }</span>
+<span class="sd">                                ]</span>
+<span class="sd">                            }</span>
+<span class="sd">    </span>
+<span class="sd">            response = pinata.hash_pin_policy(cid, new_pin_policy)</span>
+<span class="sd">            print(response)</span>
+<span class="sd">        </span>
+<span class="sd">        Results::</span>
+<span class="sd">            </span>
+<span class="sd">            200</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">PINATA_BASE_URL</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">HASH_PIN_POLICY</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">()</span>
@@ -228,7 +373,7 @@
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">}</span></div>
     
 
-<div class="viewcode-block" id="Pinning.global_pin_policy"><a class="viewcode-back" href="../../index.html#pinata_python.pinning.Pinning.global_pin_policy">[docs]</a>    <span class="k">def</span> <span class="nf">global_pin_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_pin_policy</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">migrate_previous_pins</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
+<div class="viewcode-block" id="Pinning.global_pin_policy"><a class="viewcode-back" href="../../pinata_python.pinning.html#pinata_python.pinning.Pinning.global_pin_policy">[docs]</a>    <span class="k">def</span> <span class="nf">global_pin_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_pin_policy</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">migrate_previous_pins</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;See (https://docs.pinata.cloud/api-pinning/global-pin-policy).</span>
 
 <span class="sd">        Args:</span>
@@ -238,7 +383,32 @@
 <span class="sd">            will be replicated to match your new pin policy. Defaults to True.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            PinataResponse: See custom_typing.py file.</span>
+<span class="sd">            PinataResponse: See utils.custom_typing.py file.</span>
+<span class="sd">        </span>
+<span class="sd">        Example::</span>
+<span class="sd">            </span>
+<span class="sd">            from pinata_python.pinning import Pinning</span>
+
+<span class="sd">            pinata = Pinning(AUTH=&quot;jwt&quot;, PINATA_JWT_TOKEN=&#39;&lt;YOUR-JWT&gt;&#39;)</span>
+
+<span class="sd">            new_pin_policy = {</span>
+<span class="sd">                                &#39;regions&#39;: [</span>
+<span class="sd">                                    {</span>
+<span class="sd">                                        &#39;id&#39;: &#39;FRA1&#39;,</span>
+<span class="sd">                                        &#39;desiredReplicationCount&#39;: 1</span>
+<span class="sd">                                    }</span>
+<span class="sd">                                ]</span>
+<span class="sd">                            }</span>
+<span class="sd">            response = pinata.global_pin_policy(</span>
+<span class="sd">                                new_pin_policy, </span>
+<span class="sd">                                migrate_previous_pins=True</span>
+<span class="sd">                            )</span>
+<span class="sd">            print(response)</span>
+<span class="sd">        </span>
+<span class="sd">        Results::</span>
+<span class="sd">            </span>
+<span class="sd">            200</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">PINATA_BASE_URL</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">GLOBAL_PIN_POLICY</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">()</span>
@@ -256,14 +426,36 @@
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">}</span></div>
 
     
-<div class="viewcode-block" id="Pinning.pin_jobs"><a class="viewcode-back" href="../../index.html#pinata_python.pinning.Pinning.pin_jobs">[docs]</a>    <span class="k">def</span> <span class="nf">pin_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
+<div class="viewcode-block" id="Pinning.pin_jobs"><a class="viewcode-back" href="../../pinata_python.pinning.html#pinata_python.pinning.Pinning.pin_jobs">[docs]</a>    <span class="k">def</span> <span class="nf">pin_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;See (https://docs.pinata.cloud/api-pinning/pin-jobs).</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            options (Options, optional): The dictionary with the available filters as keywords. Defaults to None.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            PinataResponse: See custom_typing.py file.</span>
+<span class="sd">            PinataResponse: See utils.custom_typing.py file.</span>
+<span class="sd">        </span>
+<span class="sd">        Example::</span>
+<span class="sd">            </span>
+<span class="sd">            from pinata_python.pinning import Pinning</span>
+
+<span class="sd">            pinata = Pinning(AUTH=&quot;jwt&quot;, PINATA_JWT_TOKEN=&#39;&lt;YOUR-JWT&gt;&#39;)</span>
+
+<span class="sd">            options = {</span>
+<span class="sd">                        &#39;sort&#39;: &#39;ASC&#39;,</span>
+<span class="sd">                        &#39;status&#39;: &#39;prechecking&#39;,</span>
+<span class="sd">                        &#39;limit&#39;: 3</span>
+<span class="sd">                    }</span>
+<span class="sd">            response = pinata.pin_jobs(options)</span>
+<span class="sd">            print(response) # it&#39;s empty</span>
+<span class="sd">        </span>
+<span class="sd">        Results::</span>
+<span class="sd">            </span>
+<span class="sd">            {</span>
+<span class="sd">                &#39;count&#39;: 0, </span>
+<span class="sd">                &#39;rows&#39;: []</span>
+<span class="sd">            }</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">PINATA_BASE_URL</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">PIN_JOBS</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">()</span>
@@ -310,6 +502,15 @@
 
 
 <h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.base.html">Base API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.users.html">Users API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.data.html">Data API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.gateway.html">Gateway API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.pinning.html">Pinning API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.utils.html">Helpers module</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>

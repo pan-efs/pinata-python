@@ -2,3 +2,8 @@ __pycache__/
 .pytest_cache
 .env
 .hypothesis/
+
+# package
+dist/
+build/
+pinata_python.egg-info/

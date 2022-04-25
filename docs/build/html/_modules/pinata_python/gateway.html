@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pinata_python.gateway &#8212; pinata-python 0.0.1 documentation</title>
+    <title>pinata_python.gateway &#8212; pinata-python 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
@@ -38,15 +38,15 @@
 <span class="kn">from</span> <span class="nn">.utils.custom_typing</span> <span class="kn">import</span> <span class="n">PinataResponse</span>
 
 
-<div class="viewcode-block" id="PublicGateway"><a class="viewcode-back" href="../../index.html#pinata_python.gateway.PublicGateway">[docs]</a><span class="nd">@dataclass</span>
+<div class="viewcode-block" id="PublicGateway"><a class="viewcode-back" href="../../pinata_python.gateway.html#pinata_python.gateway.PublicGateway">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">PublicGateway</span><span class="p">(</span><span class="n">Pinata</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Extended Gateway class. Inherits from Pinata. </span>
+    <span class="sd">&quot;&quot;&quot;Extended PublicGateway class. Inherits from Pinata. </span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Pinata (class): pinata_python.base.Pinata</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="PublicGateway.retrieve_content"><a class="viewcode-back" href="../../index.html#pinata_python.gateway.PublicGateway.retrieve_content">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cid</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">save_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
+<div class="viewcode-block" id="PublicGateway.retrieve_content"><a class="viewcode-back" href="../../pinata_python.gateway.html#pinata_python.gateway.PublicGateway.retrieve_content">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cid</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">save_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PinataResponse</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;See (https://docs.pinata.cloud/retrieving-content).</span>
 
 <span class="sd">        Args:</span>
@@ -55,7 +55,24 @@
 <span class="sd">            save_to (str): The path that you want to save your content to.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            PinataResponse: See custom_typing.py file.</span>
+<span class="sd">            PinataResponse: See utils.custom_typing.py file.</span>
+<span class="sd">        </span>
+<span class="sd">        Example::</span>
+<span class="sd">            </span>
+<span class="sd">            from pinata_python.gateway import PublicGateway</span>
+<span class="sd">            </span>
+<span class="sd">            pinata = PublicGateway(AUTH=&quot;jwt&quot;, PINATA_JWT_TOKEN=&#39;&lt;YOUR-JWT&gt;&#39;)</span>
+
+<span class="sd">            cid = &#39;&lt;YOUR-CID&gt;&#39;</span>
+<span class="sd">            save_to = &#39;&lt;YOUR-PATH&gt;&#39;</span>
+
+<span class="sd">            response = pinata.retrieve_content(cid, save_to)</span>
+<span class="sd">            print(response)</span>
+<span class="sd">        </span>
+<span class="sd">        Results::</span>
+<span class="sd">            </span>
+<span class="sd">            200</span>
+<span class="sd">            </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">PINATA_IPFS_GATEWAY</span><span class="si">}{</span><span class="n">cid</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">()</span>
@@ -90,6 +107,15 @@
 
 
 <h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.base.html">Base API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.users.html">Users API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.data.html">Data API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.gateway.html">Gateway API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.pinning.html">Pinning API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pinata_python.utils.html">Helpers module</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
