@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base API &#8212; pinata-python 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Users API" href="pinata_python.users.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="pinata_python.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pinata_python.base">
+<span id="base-api"></span><h1>Base API<a class="headerlink" href="#module-pinata_python.base" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pinata_python.base.</span></span><span class="sig-name descname"><span class="pre">Pinata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PINATA_API_KEY</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PINATA_API_SECRET</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PINATA_JWT_TOKEN</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AUTH</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'keysecret'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pinata_python/base.html#Pinata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinata_python.base.Pinata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Pinata Base class.</p>
+<dl>
+<dt>Args:</dt><dd><p>PINATA_API_KEY (str, Optional): Pinata’s api_key.</p>
+<p>PINATA_API_SECRET (str, Optional): Pinata’s api_secret.</p>
+<p>PINATA_JWT_TOKEN (str, Optional): Pinata’s JWT token.</p>
+<p>AUTH (str, Optional): Authentication method. Default to ‘keysecret’. Otherwise, ‘jwt’.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.AUTH">
+<span class="sig-name descname"><span class="pre">AUTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'keysecret'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.AUTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.DATA_USAGE">
+<span class="sig-name descname"><span class="pre">DATA_USAGE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'data/userPinnedDataTotal'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.DATA_USAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.GENERATE_API_KEYS">
+<span class="sig-name descname"><span class="pre">GENERATE_API_KEYS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'users/generateApiKey'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.GENERATE_API_KEYS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.GLOBAL_PIN_POLICY">
+<span class="sig-name descname"><span class="pre">GLOBAL_PIN_POLICY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pinning/userPinPolicy'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.GLOBAL_PIN_POLICY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.HASH_METADATA">
+<span class="sig-name descname"><span class="pre">HASH_METADATA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pinning/hashMetadata'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.HASH_METADATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.HASH_PIN_POLICY">
+<span class="sig-name descname"><span class="pre">HASH_PIN_POLICY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pinning/hashPinPolicy'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.HASH_PIN_POLICY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.PINATA_API_KEY">
+<span class="sig-name descname"><span class="pre">PINATA_API_KEY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pinata_python.base.Pinata.PINATA_API_KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.PINATA_API_SECRET">
+<span class="sig-name descname"><span class="pre">PINATA_API_SECRET</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pinata_python.base.Pinata.PINATA_API_SECRET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.PINATA_BASE_URL">
+<span class="sig-name descname"><span class="pre">PINATA_BASE_URL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://api.pinata.cloud/'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.PINATA_BASE_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.PINATA_IPFS_GATEWAY">
+<span class="sig-name descname"><span class="pre">PINATA_IPFS_GATEWAY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://gateway.pinata.cloud/ipfs/'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.PINATA_IPFS_GATEWAY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.PINATA_JWT_TOKEN">
+<span class="sig-name descname"><span class="pre">PINATA_JWT_TOKEN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pinata_python.base.Pinata.PINATA_JWT_TOKEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.PIN_BY_HASH">
+<span class="sig-name descname"><span class="pre">PIN_BY_HASH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pinning/pinByHash'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.PIN_BY_HASH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.PIN_FILE_TO_IPFS">
+<span class="sig-name descname"><span class="pre">PIN_FILE_TO_IPFS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pinning/pinFileToIPFS'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.PIN_FILE_TO_IPFS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.PIN_JOBS">
+<span class="sig-name descname"><span class="pre">PIN_JOBS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pinning/pinJobs'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.PIN_JOBS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.PIN_JSON_TO_IPFS">
+<span class="sig-name descname"><span class="pre">PIN_JSON_TO_IPFS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pinning/pinJSONToIPFS'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.PIN_JSON_TO_IPFS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.QUERY_PINS">
+<span class="sig-name descname"><span class="pre">QUERY_PINS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'data/pinList'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.QUERY_PINS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.REVOKE_API_KEY">
+<span class="sig-name descname"><span class="pre">REVOKE_API_KEY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'users/revokeApiKey'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.REVOKE_API_KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.UNPIN">
+<span class="sig-name descname"><span class="pre">UNPIN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pinning/unpin/'</span></em><a class="headerlink" href="#pinata_python.base.Pinata.UNPIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.headers">
+<span class="sig-name descname"><span class="pre">headers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/pinata_python/base.html#Pinata.headers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinata_python.base.Pinata.headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get request’s headers.</p>
+<dl>
+<dt>Raises:</dt><dd><p>AuthenticationError: If api_key or api_secret have not been provided.</p>
+<p>AuthenticationError: If JWT token has not been provided.</p>
+<p>AuthenticationError: No authentication way has been declared.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Headers: The authentication headers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinata_python.base.Pinata.set_authentication">
+<span class="sig-name descname"><span class="pre">set_authentication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pinata_python/base.html#Pinata.set_authentication"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinata_python.base.Pinata.set_authentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set new authentication credentials.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>options (Options, optional): The dictionary with keywords ‘jwt_token’</dt><dd><p>or (‘api_key’ and ‘api_secret’). Defaults to None.</p>
+</dd>
+</dl>
+</dd>
+<dt>Raises:</dt><dd><p>SetAuthenticationError: If both authentication methods has been defined in the dictionary.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True. Otherwise, False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">pinata-python</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Base API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pinata_python.users.html">Users API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pinata_python.data.html">Data API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pinata_python.gateway.html">Gateway API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pinata_python.pinning.html">Pinning API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">&lt;no title&gt;</a><ul>
+  <li><a href="pinata_python.html">&lt;no title&gt;</a><ul>
+      <li>Previous: <a href="pinata_python.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Next: <a href="pinata_python.users.html" title="next chapter">Users API</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Panagiotis Efstratiou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/pinata_python.base.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
