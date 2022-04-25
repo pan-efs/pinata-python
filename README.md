@@ -3,7 +3,6 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pan-efs/pinata-python/build)
 [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
 ![GitHub repo size](https://img.shields.io/github/repo-size/pan-efs/pinata-python)
-![License](https://img.shields.io/github/license/pan-efs/pinata-python)
 
 > An easy to use and fully-featured Python API for [pinata.cloud.](https://www.pinata.cloud/)
 
