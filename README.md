@@ -42,12 +42,9 @@ from pinata_python.pinning import Pinning
 your_pinata_api_key = ''
 your_pinata_api_secret = ''
 
-pinata = Pinning(
-      PINATA_API_KEY=your_pinata_api_key,
-      PINATA_API_SECRET=your_pinata_api_secret
-    )
-your_filepath = ''
+pinata = Pinning(PINATA_API_KEY=your_pinata_api_key, PINATA_API_SECRET=your_pinata_api_secret)
 
+your_filepath = ''
 response = pinata.pin_file_to_ipfs(filepath)
 
 print(response)
