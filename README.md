@@ -38,12 +38,12 @@ Read the [official documentation](https://github.com/pan-efs/pinata-python/blob/
 ```python
 from pinata_python.pinning import Pinning
 
-your_pinata_api_key = ''
-your_pinata_api_secret = ''
+your_pinata_api_key = '...'
+your_pinata_api_secret = '...'
 
 pinata = Pinning(PINATA_API_KEY=your_pinata_api_key, PINATA_API_SECRET=your_pinata_api_secret)
 
-your_filepath = ''
+your_filepath = '...'
 response = pinata.pin_file_to_ipfs(filepath)
 
 print(response)
@@ -55,7 +55,7 @@ print(response)
 
 There are some tests which have been skipped. Please refer to [tests folder](https://github.com/pan-efs/pinata-python/tree/main/pinata_python/tests) in order to comprehend why.
 
-> Note: The API has not tested for the professional plan. Yet, it doesn't mean that it doesn't work for it.
+> Note: The API has not been tested for the professional plan. Yet, it doesn't mean that it doesn't work for it.
 
 ## Notes
 
