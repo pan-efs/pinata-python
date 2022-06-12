@@ -7,6 +7,8 @@
 > An easy to use and fully-featured Python API for [pinata.cloud.](https://www.pinata.cloud/)
 
 ## Installation
+It's encouraged to read the [notes](https://github.com/pan-efs/pinata-python#notes) before installation.
+
 Install via PyPi:
 
 `pip install pinata-python==1.0.0`
@@ -58,6 +60,8 @@ There are some tests which have been skipped. Please refer to [tests folder](htt
 > Note: The API has not been tested for the professional plan. Yet, it doesn't mean that it doesn't work for it.
 
 ## Notes
+
+* The pinata-python API does not support [Pinata Submarine API](https://docs.pinata.cloud/pinata-submarine-api). Also, it has been built before Pinata Submarine API was released.
 
 * The pinata-python API is unofficial. There is no any kind of collaboration between the author and pinata.
 
